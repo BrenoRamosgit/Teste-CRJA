@@ -10,5 +10,5 @@ import java.util.List;
 
 public interface PersonFilterRepository {
 
-    Page<Person> findAll(Pageable pageable, LocalDate startTime, LocalDate finishTime);
+    Page<Person> findAll(Pageable pageable, LocalDate startTime, LocalDate finishTime, String title);
 }

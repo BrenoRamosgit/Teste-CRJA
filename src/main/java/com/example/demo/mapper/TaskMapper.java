@@ -5,6 +5,8 @@ import com.example.demo.exception.BaseException;
 import com.example.demo.model.Department;
 import com.example.demo.model.Task;
 import com.example.demo.repository.DepartamentRepository;
+import com.example.demo.repository.PersonRepository;
+import com.example.demo.repository.TaskRepository;
 import com.example.demo.service.DepartamentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,6 +26,8 @@ public class TaskMapper {
 
     @Autowired
     private PersonMapper personMapper;
+
+
 
     public Task create(TaskRequest request){
         Task model = new Task();

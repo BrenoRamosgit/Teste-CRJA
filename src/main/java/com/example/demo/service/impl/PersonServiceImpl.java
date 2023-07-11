@@ -30,7 +30,7 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public Page<PersonResponse> list(Pageable pageable) {
         Page<Person> model = repository.findAll(pageable);
-        return model.map(mapper::response);
+        return model.map(mapper::responseWithTotalHours);
     }
 
     @Override

@@ -7,6 +7,7 @@ import com.example.demo.exception.BaseException;
 import com.example.demo.model.Department;
 import com.example.demo.model.Person;
 import com.example.demo.repository.DepartamentRepository;
+import com.example.demo.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -22,6 +23,9 @@ public class PersonMapper {
     @Autowired
     private DepartamentRepository departamentRepository;
 
+    @Autowired
+    private TaskRepository taskRepository;
+
     public Person create(PersonRequest request){
         Person model = new Person();
         model.setName(request.getName());
@@ -29,6 +33,15 @@ public class PersonMapper {
             model.setDepartment(find(request.getDepartamentId()));
         }
         return model;
+    }
+    public PersonResponse responseWithTotalHours(Person model){
+        PersonResponse response = response(model);
+        response.setTotalHours(taskRepository.getTotalHoursByPersonId(model.getId()));
+        return response;
+    }
+
+    public List<PersonResponse> responseWithTotalHours(List<Person> model){
+        return model.stream().map(this::responseWithTotalHours).toList();
     }
 
     public PersonResponse response(Person model){
@@ -41,6 +54,7 @@ public class PersonMapper {
             departamentResponse.setName(model.getDepartment().getName());
             response.setDepartament(departamentResponse);
         }
+
         return response;
     }
 

@@ -4,7 +4,7 @@ import com.example.demo.dto.request.PersonRequest;
 import com.example.demo.dto.response.DepartamentResponse;
 import com.example.demo.dto.response.PersonResponse;
 import com.example.demo.exception.BaseException;
-import com.example.demo.model.Department;
+import com.example.demo.model.Departament;
 import com.example.demo.model.Person;
 import com.example.demo.repository.DepartamentRepository;
 import com.example.demo.repository.TaskRepository;
@@ -30,7 +30,7 @@ public class PersonMapper {
         Person model = new Person();
         model.setName(request.getName());
         if(nonNull(request.getDepartamentId())){
-            model.setDepartment(find(request.getDepartamentId()));
+            model.setDepartament(find(request.getDepartamentId()));
         }
         return model;
     }
@@ -48,10 +48,10 @@ public class PersonMapper {
         PersonResponse response = new PersonResponse();
         response.setId(model.getId());
         response.setName(model.getName());
-        if(nonNull(model.getDepartment())){
+        if(nonNull(model.getDepartament())){
             DepartamentResponse departamentResponse = new DepartamentResponse();
-            departamentResponse.setId(model.getDepartment().getId());
-            departamentResponse.setName(model.getDepartment().getName());
+            departamentResponse.setId(model.getDepartament().getId());
+            departamentResponse.setName(model.getDepartament().getName());
             response.setDepartament(departamentResponse);
         }
 
@@ -62,8 +62,8 @@ public class PersonMapper {
         return model.stream().map(this::response).toList();
     }
 
-    private Department find(Long id) {
-        Optional<Department> model = departamentRepository.findById(id);
+    private Departament find(Long id) {
+        Optional<Departament> model = departamentRepository.findById(id);
         if(model.isEmpty()){
             throw new BaseException(HttpStatus.NOT_FOUND, String.format("Departamento de id %d não encontrada.", id));
         }

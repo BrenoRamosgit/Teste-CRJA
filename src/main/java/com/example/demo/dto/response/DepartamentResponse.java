@@ -1,6 +1,5 @@
 package com.example.demo.dto.response;
 
-import com.example.demo.model.Department;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

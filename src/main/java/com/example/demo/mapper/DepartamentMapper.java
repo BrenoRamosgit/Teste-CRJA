@@ -1,9 +1,7 @@
 package com.example.demo.mapper;
 
 import com.example.demo.dto.response.DepartamentResponse;
-import com.example.demo.dto.response.PersonResponse;
-import com.example.demo.model.Department;
-import com.example.demo.model.Person;
+import com.example.demo.model.Departament;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +19,7 @@ public class DepartamentMapper {
     private TaskMapper taskMapper;
 
 
-    public DepartamentResponse response(Department model){
+    public DepartamentResponse response(Departament model){
         DepartamentResponse response = new DepartamentResponse();
         response.setId(model.getId());
         response.setName(model.getName());
@@ -35,7 +33,7 @@ public class DepartamentMapper {
         return response;
     }
 
-    public List<DepartamentResponse> response(List<Department> model){
+    public List<DepartamentResponse> response(List<Departament> model){
         return model.stream().map(this::response).toList();
     }
 }

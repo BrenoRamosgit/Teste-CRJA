@@ -34,6 +34,11 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
+    public Page<PersonResponse> listUsedHours(Pageable pageable) {
+        return null;
+    }
+
+    @Override
     public PersonResponse findById(Long id) {
         Person model = find(id);
         return mapper.response(model);

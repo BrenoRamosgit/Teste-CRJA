@@ -20,6 +20,6 @@ public class Person {
 
     @JoinColumn(name = "departamento_id")
     @OneToOne
-    public Department department;
+    public Departament departament;
 
 }

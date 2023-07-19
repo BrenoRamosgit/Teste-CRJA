@@ -25,4 +25,7 @@ public class PersonResponse {
 
     @JsonProperty("totalHorasGastas")
     private Long totalHours;
+
+    @JsonProperty("mediaHorasGastas")
+    private Long avarageHours;
 }

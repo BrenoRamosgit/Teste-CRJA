@@ -41,7 +41,7 @@ public class Task {
 
     @JoinColumn(name = "departamento_id")
     @OneToOne
-    public Department department;
+    public Departament departament;
 
     @JoinColumn(name = "pessoa_id")
     @OneToOne

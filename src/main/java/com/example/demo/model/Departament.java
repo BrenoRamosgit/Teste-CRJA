@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Department {
+public class Departament {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,9 +20,9 @@ public class Department {
     @Column(nullable = false, name = "nome")
     private String name;
 
-    @OneToMany(mappedBy = "department")
+    @OneToMany(mappedBy = "departament")
     private List<Person> persons;
 
-    @OneToMany(mappedBy = "department")
+    @OneToMany(mappedBy = "departament")
     private List<Task> tasks;
 }

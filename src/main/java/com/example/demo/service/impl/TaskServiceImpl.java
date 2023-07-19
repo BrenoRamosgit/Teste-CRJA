@@ -78,7 +78,7 @@ public class TaskServiceImpl implements TaskService {
         if(model.getFinished().equals(Boolean.TRUE)){
             throw new BaseException(HttpStatus.BAD_REQUEST, String.format("Tarefa de id %d Já foi finalizada.", id));
         }
-        if(!model.getDepartment().getId().equals(person.getDepartment().getId())){
+        if(!model.getDepartament().getId().equals(person.getDepartament().getId())){
             throw new BaseException(HttpStatus.BAD_REQUEST, "Pessoa não pode ser associada a tarefa pois o departamento é diferente.");
         }
         model.setPerson(person);

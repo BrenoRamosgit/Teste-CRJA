@@ -25,6 +25,12 @@ public class PersonController implements PersonControllerSwagger {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping(path = "/gastos")
+    public ResponseEntity<Page<PersonResponse>> listUsedHours(Pageable pageable){
+        Page<PersonResponse> response = service.list(pageable);
+        return ResponseEntity.ok(response);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<PersonResponse> findById(@PathVariable("id") Long id){
         PersonResponse response = service.findById(id);

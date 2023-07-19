@@ -2,6 +2,7 @@ package com.example.demo.fixture.request;
 
 import br.com.six2six.fixturefactory.Rule;
 import br.com.six2six.fixturefactory.loader.TemplateLoader;
+import com.example.demo.dto.request.TaskRequest;
 import com.example.demo.model.Task;
 
 import java.time.LocalDate;
@@ -12,20 +13,17 @@ import static br.com.six2six.fixturefactory.Fixture.of;
 
 public class TaskRequestFixture implements TemplateLoader {
 
-    public static final String MODEL = "MODEL";
+    public static final String REQUEST = "REQUEST";
 
     @Override
     public void load() {
-        of(Task.class).addTemplate(MODEL, new Rule() {
+        of(TaskRequest.class).addTemplate(REQUEST, new Rule() {
             {
-                add("id", random(Long.class, range(1l, 100l)));
                 add("title", name());
                 add("description", name());
                 add("term", LocalDate.now().plus(5, ChronoUnit.DAYS));
-                add("startTime", LocalDateTime.now().plus(1, ChronoUnit.DAYS));
-                add("finishTime", LocalDateTime.now().plus(3, ChronoUnit.DAYS));
                 add("duration", random(Integer.class, range(1, 25)));
-                add("finished", Boolean.FALSE);
+                add("departamentId", 1L);
             }
         });
     }

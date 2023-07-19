@@ -22,15 +22,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DepartamentMapperTest extends BaseTest {
 
+    @InjectMocks
+    private DepartamentMapper departamentMapper;
+
     private Class<DepartamentMapper> clazz = DepartamentMapper.class;
 
     @Test
     public void testClassAnnotations() throws Exception {
         assertTrue(clazz.isAnnotationPresent(Component.class));
     }
-
-    @InjectMocks
-    private DepartamentMapper departamentMapper;
 
     @Test
     public void shouldMapperModelToResponse() throws Exception {
